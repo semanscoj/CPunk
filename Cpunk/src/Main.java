@@ -17,9 +17,12 @@ public class Main {
  
     // The window handle
     private long window;
+    
+    private final String TITLE = "Steampunk Project v0.0";
+    private final int WIDTH = 800;
+    private final int HEIGHT = (WIDTH / 16) * 9;
  
     public void run() {
-        System.out.println("Hello LWJGL " + Sys.getVersion() + "!");
  
         try {
             init();
@@ -49,11 +52,8 @@ public class Main {
         glfwWindowHint(GLFW_VISIBLE, GL_FALSE); // the window will stay hidden after creation
         glfwWindowHint(GLFW_RESIZABLE, GL_TRUE); // the window will be resizable
  
-        int WIDTH = 300;
-        int HEIGHT = 300;
- 
         // Create the window
-        window = glfwCreateWindow(WIDTH, HEIGHT, "Hello World!", NULL, NULL);
+        window = glfwCreateWindow(WIDTH, HEIGHT, TITLE, NULL, NULL);
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");
  
@@ -93,7 +93,7 @@ public class Main {
         GLContext.createFromCurrent();
  
         // Set the clear color
-        glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
  
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
